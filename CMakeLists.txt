@@ -4,7 +4,7 @@ project(test_project VERSION 1.0.0)
 
 set(CMAKE_COMPILE_WARNING_AS_ERROR OFF)
 
-include(${CMAKE_CURRENT_SOURCE_DIR}/duckdb.cmake)
+include(${CMAKE_CURRENT_SOURCE_DIR}/cmake/deps/duckdb.cmake)
 include("${CMAKE_CURRENT_SOURCE_DIR}/cmake/common/bootstrap.cmake" NO_POLICY_SCOPE)
 
 include(compilerconfig)
