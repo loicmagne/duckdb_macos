@@ -1,0 +1,16 @@
+{
+    "version": 3,
+    "configurePresets": [
+        {
+            "name": "macos-ci",
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/build"
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "macos-ci",
+            "configurePreset": "macos-ci"
+        }
+    ]
+}
