@@ -1,0 +1,49 @@
+name: DuckDB MacOS Build Test
+
+on:
+  workflow_dispatch:  # Allows manual triggering from GitHub UI
+
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          brew install cmake ninja
+
+      - name: Clone DuckDB
+        run: |
+          git clone https://github.com/duckdb/duckdb.git
+          cd duckdb
+          # Optionally checkout specific version if needed
+          # git checkout v0.9.2
+
+      - name: Build DuckDB
+        run: |
+          cd duckdb
+          mkdir build
+          cd build
+          cmake -G Ninja -DBUILD_SHARED_LIBS=OFF -DBUILD_STATIC_LIBS=ON ..
+          ninja -v 2>&1 | tee build_log.txt
+
+      - name: Debug Info
+        run: |
+          cd duckdb/build
+          echo "=== Library Files ===" >> debug_info.txt
+          find . -name "libduckdb*" >> debug_info.txt
+          echo "=== Directory Structure ===" >> debug_info.txt
+          ls -R . >> debug_info.txt
+          echo "=== CMake Cache ===" >> debug_info.txt
+          cat CMakeCache.txt >> debug_info.txt
+
+      - name: Upload Build Log
+        uses: actions/upload-artifact@v3
+        with:
+          name: build-logs
+          path: |
+            duckdb/build/build_log.txt
+            duckdb/build/debug_info.txt
+          retention-days: 7
