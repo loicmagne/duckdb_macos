@@ -46,10 +46,7 @@
             ],
             "displayName": "macOS Universal CI build",
             "description": "Build for macOS 11.0+ (Universal binary) for CI",
-            "generator": "Ninja",
-            "cacheVariables": {
-                "ENABLE_CCACHE": true
-            }
+            "generator": "Ninja"
         }
     ],
     "buildPresets": [
