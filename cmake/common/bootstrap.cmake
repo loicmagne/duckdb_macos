@@ -58,8 +58,8 @@ set(PLUGIN_EMAIL ${_email})
 set(PLUGIN_VERSION ${_version})
 set(MACOS_BUNDLEID ${_bundleId})
 
-# include(buildnumber)
-# include(osconfig)
+include(buildnumber)
+include(osconfig)
 
 # Allow selection of common build types via UI
 if(NOT CMAKE_BUILD_TYPE)
