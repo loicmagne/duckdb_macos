@@ -27,7 +27,7 @@
                 "lhs": "${hostSystemName}",
                 "rhs": "Darwin"
             },
-            "generator": "Xcode",
+            "generator": "Ninja",
             "warnings": {
                 "dev": true,
                 "deprecated": true
@@ -46,7 +46,7 @@
             ],
             "displayName": "macOS Universal CI build",
             "description": "Build for macOS 11.0+ (Universal binary) for CI",
-            "generator": "Xcode",
+            "generator": "Ninja",
             "cacheVariables": {
                 "CMAKE_COMPILE_WARNING_AS_ERROR": true,
                 "ENABLE_CCACHE": true
