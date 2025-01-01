@@ -8,7 +8,7 @@ include(${CMAKE_CURRENT_SOURCE_DIR}/cmake/deps/duckdb.cmake)
 include("${CMAKE_CURRENT_SOURCE_DIR}/cmake/common/bootstrap.cmake" NO_POLICY_SCOPE)
 
 include(compilerconfig)
-# include(defaults)
+include(defaults)
 # include(helpers)
 
 add_executable(${CMAKE_PROJECT_NAME} main.cpp)
